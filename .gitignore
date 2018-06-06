@@ -118,6 +118,7 @@ Session.vim
 .vscode
 typings
 jsconfig.json
+errors.txt
 
 # Test artifacts
 testConfig.json
