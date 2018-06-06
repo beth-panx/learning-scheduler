@@ -5,7 +5,8 @@ module.exports = {
   },
   'extends': 'airbnb/legacy',  
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 6,
+    "sourceType": "module",
   },
   'rules': {
     'prefer-template': 0,

@@ -2,8 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
  * See LICENSE in the project root for license information.
  */
-var gulp = require('gulp');
-var nodemon = require('gulp-nodemon');
+
+'use strict';
+
+import gulp from 'gulp';
+import nodemon from 'gulp-nodemon';
 
 gulp.task('default', function () {
   var config = {
