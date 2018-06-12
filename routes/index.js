@@ -3,23 +3,16 @@
  * See LICENSE in the project root for license information.
  */
 
-/**
-* This sample shows how to:
-*    - Get the current user's metadata
-*    - Get the current user's profile photo
-*    - Attach the photo as a file attachment to an email message
-*    - Upload the photo to the user's root drive
-*    - Get a sharing link for the file and add it to the message
-*    - Send the email
-*/
 const express = require('express');
-const router = express.Router();
 const graphHelper = require('../utils/graphHelper.js');
 const emailer = require('../utils/emailer.js');
 const passport = require('passport');
 const fs = require('fs');
-// ////const fs = require('fs');
-// ////const path = require('path');
+
+const router = express.Router();
+const readableStream = fs.createReadStream('public/img/test.jpg');
+const picFile = null;
+const chunk = readableStream.read();
 
 // Get the home page.
 router.get('/', (req, res) => {
@@ -86,17 +79,12 @@ function prepForEmailMessage(req, callback) {
         });
       });
     } else {
-      const readableStream = fs.createReadStream('public/img/test.jpg');
-      var picFile;
-      var chunk;
-      readableStream.on('readable', function() {
-        while ((chunk=readableStream.read()) != null) {
+      readableStream.on('readable', function () {
+        while (chunk != null) {
           picFile = chunk;
         }
-    });
-      
-      readableStream.on('end', function() {
-
+      });
+      readableStream.on('end', function () {
         graphHelper.uploadFile(accessToken, picFile, (errFile, file) => {
           // Get sharingLink for file.
           graphHelper.getSharingLink(accessToken, file.id, (errLink, link) => {
@@ -110,7 +98,7 @@ function prepForEmailMessage(req, callback) {
           });
         });
       });
-      }
+    }
   });
 }
 

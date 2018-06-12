@@ -4,8 +4,9 @@
  */
 
 // The contents of the outbound email message that will be sent to the user
-const emailContent = `<html><head> <meta http-equiv='Content-Type' content='text/html; charset=us-ascii'> <title></title> </head>
-  <body style='font-family:calibri'></body> </html>`;
+const emailContent = `<html><head> <meta http-equiv='Content-Type' content='text/html; charset=us-ascii'> <title></title>
+  <script type="application/adaptivecard+json">{"type": "AdaptiveCard","version":"1.0","hideOriginalBody":false,"body":[{"type": "TextBlock","text": "Visit the Outlook Dev Portal","size": "large"},{"type": "TextBlock","text": "Click **Learn More** to learn more about Actionable Messages!"},{"type": "Input.Text","id": "feedbackText","placeholder": "Let us know what you think about Actionable Messages"}]}</script> </head>
+  <body style='font-family:calibri'>   </body> </html>`;
 
 /**
  * Returns the outbound email message content with the supplied name populated in the text.
@@ -33,7 +34,7 @@ function wrapEmail(content, recipient, file) {
   }];
   const emailAsPayload = {
     Message: {
-      Subject: 'Welcome to Microsoft Graph development with Node.js and the Microsoft Graph Connect sample',
+      Subject: 'Learning Scheduler',
       Body: {
         ContentType: 'HTML',
         Content: content
