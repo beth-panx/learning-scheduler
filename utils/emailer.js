@@ -5,7 +5,7 @@
 
 // The contents of the outbound email message that will be sent to the user
 const emailContent = `<html><head> <meta http-equiv='Content-Type' content='text/html; charset=us-ascii'> <title></title>
-  <script type="application/adaptivecard+json">{"type": "AdaptiveCard","version":"1.0","hideOriginalBody":false,"body":[{"type": "TextBlock","text": "Visit the Outlook Dev Portal","size": "large"},{"type": "TextBlock","text": "Click **Learn More** to learn more about Actionable Messages!"},{"type": "Input.Text","id": "feedbackText","placeholder": "Let us know what you think about Actionable Messages"}]}</script> </head>
+  <script type="application/adaptivecard+json">{"$schema":"http://adaptivecards.io/schemas/adaptive-card.json","type":"AdaptiveCard","version":"1.0","body":[{"type":"ColumnSet","columns":[{"width":"auto","items":[{"type":"Image","width":"200px","url":"https://api.prod.mlxma.microsoft.com/content/artificial-intelligence-v1/course_thumb_dat263x.jpg"}]},{"width":"stretch","spacing":"padding","items":[{"type":"Container","height":"stretch","items":[{"type":"TextBlock","size":"large","text":"**Introduction to AI**"},{"type":"TextBlock","spacing":"none","text":"Provider: [Microsoft](xupa@microsoft.com)"},{"type":"TextBlock","spacing":"default","color":"attention","text":"Some text that asks the relevency... I am bad at English."}]},{"type":"ActionSet","actions":[{"type":"Action.OpenUrl","title":"Cool, I like it!","url":"/something"},{"type":"Action.OpenUrl","title":"Schedule time now","url":"/somethingelse"},{"type":"Action.OpenUrl","title":"Nope...","url":"http://hyperfish.com"}]}]}]}]}</script> </head>
   <body style='font-family:calibri'>   </body> </html>`;
 
 /**
